@@ -1,8 +1,7 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2021-09-15 04:00:13.447
+drop database covid_19_DB;
+create database covid_19_DB;
+USE covid_19_DB;
 
--- tables
--- Table: City
 CREATE TABLE City (
     id_city int NOT NULL AUTO_INCREMENT,
     city varchar(100) NOT NULL,

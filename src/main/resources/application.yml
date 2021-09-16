@@ -2,7 +2,7 @@ spring:
   application:
     name: vic19
   datasource:
-    name: dbCovid19
+    name: cobid_19_db
     platform: mysql
     url: jdbc:mysql://localhost:3306/db_covid19?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
