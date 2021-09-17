@@ -1,0 +1,12 @@
+POST http://localhost:8080/v1/hospital
+Accept: application/json
+Content-Type: application/json
+
+{
+  "cityId": 1,
+  "name": "Clinica 'Divino Señor'",
+  "latitude": -16.518595188398624,
+  "longitude": -68.20732810386995
+}
+
+###

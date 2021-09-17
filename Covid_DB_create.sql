@@ -17,7 +17,7 @@ CREATE TABLE City (
 
 -- Table: City_covid_data
 CREATE TABLE City_covid_data (
-                                 id_city_covid_data int NOT NULL,
+                                 id_city_covid_data int NOT NULL AUTO_INCREMENT,
                                  id_city int NOT NULL,
                                  id_covid_data int NOT NULL,
                                  status int NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE Country (
 
 -- Table: Country_covid_data
 CREATE TABLE Country_covid_data (
-                                    id_city_covid_data int NOT NULL,
+                                    id_city_covid_data int NOT NULL AUTO_INCREMENT,
                                     status int NOT NULL,
                                     id_country int NOT NULL,
                                     id_covid_data int NOT NULL,
@@ -75,11 +75,11 @@ CREATE TABLE Covid_data (
 
 -- Table: Drugstore
 CREATE TABLE Drugstore (
-                           id_drugstore int NOT NULL,
+                           id_drugstore int NOT NULL AUTO_INCREMENT,
                            id_city int NOT NULL,
                            name varchar(50) NOT NULL,
-                           lon float NOT NULL,
-                           lat float NOT NULL,
+                           latitude float NOT NULL,
+                           longitude float NOT NULL,
                            status int NOT NULL,
                            tx_id int NOT NULL,
                            tx_date datetime NOT NULL,
@@ -90,11 +90,11 @@ CREATE TABLE Drugstore (
 
 -- Table: Hospital
 CREATE TABLE Hospital (
-                          id_hospital int NOT NULL,
+                          id_hospital int NOT NULL AUTO_INCREMENT,
                           id_city int NOT NULL,
                           name varchar(50) NOT NULL,
-                          lon float NOT NULL,
-                          lat float NOT NULL,
+                          latitude float NOT NULL,
+                          longitude float NOT NULL,
                           status int NOT NULL,
                           tx_id int NOT NULL,
                           tx_date datetime NOT NULL,
@@ -120,7 +120,7 @@ CREATE TABLE Municipality (
 
 -- Table: Municipality_covid_data
 CREATE TABLE Municipality_covid_data (
-                                         id_municipality_covid_data int NOT NULL,
+                                         id_municipality_covid_data int NOT NULL AUTO_INCREMENT,
                                          id_municipality int NOT NULL,
                                          id_covid_data int NOT NULL,
                                          status int NOT NULL,
@@ -200,4 +200,3 @@ ALTER TABLE City_covid_data ADD CONSTRAINT Table_25_Covid_data FOREIGN KEY Table
     REFERENCES Covid_data (id_covid_data);
 
 -- End of file.
-
