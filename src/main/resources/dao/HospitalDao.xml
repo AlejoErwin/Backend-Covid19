@@ -7,9 +7,38 @@
 
 
     <insert id="addHospital" parameterType="software.Backend.Covid19.shared.model.Hospital">
-        INSERT INTO hospital VALUES (null,#{cityId}, #{name}, #{latitude}, #{longitude}, 1, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost}, #{transaction.txUpdate}
+        INSERT INTO hospital VALUES (null,#{cityId}, #{name}, #{latitude}, #{longitude}, #{status}, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost}, #{transaction.txUpdate}
         )
     </insert>
 
+    <resultMap type="software.Backend.Covid19.shared.dto.HospitalRequest" id="hospitalMap">
+        <result column="nameCity" property="nameCity"/>
+        <result column="nameHospital" property="nameHospital"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+    <select  resultMap="hospitalMap" id="getHospitalCityId">
+        SELECT b.city as nameCity,
+        a.name as nameHospital,
+        a.latitude as latitude,
+        a.longitude as longitude
+        FROM hospital a, city b
+        WHERE
+        b.id_city=a.id_city and
+        a.status=1
+        and b.status=1
+        and b.id_city=#{cityId}
+    </select>
+    <select  resultMap="hospitalMap" id="getHospitalAll">
+        SELECT b.city as nameCity,
+        a.name as nameHospital,
+        a.latitude as latitude,
+        a.longitude as longitude
+        FROM hospital a, city b
+        WHERE
+        b.id_city=a.id_city and
+        a.status=1
+        and b.status=1
+    </select>
 
 </mapper>

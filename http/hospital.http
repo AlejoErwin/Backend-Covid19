@@ -10,3 +10,13 @@ Content-Type: application/json
 }
 
 ###
+
+GET http://localhost:8080/v1/hospital/list/1
+Accept: application/json
+
+###
+
+GET http://localhost:8080/v1/hospital/list/all
+Accept: application/json
+
+###
