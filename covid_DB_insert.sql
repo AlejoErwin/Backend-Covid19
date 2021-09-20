@@ -134,3 +134,125 @@ INSERT INTO `hospital` VALUES (null,9,'Hospital 2 Nivel Riberalta', -10.99697376
 INSERT INTO `hospital` VALUES (null,9,'Centro de Salud Nueva Trinidad', -14.821861564242258,-64.87586666355908,1,1,now(), '198.168.0.1', now());
 
 COMMIT;
+
+
+
+START TRANSACTION;
+INSERT INTO drugstore VALUES (null,1,'Farmacia Bolivia', -16.496072190882433,-68.11851060741613,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Bolivia - Sucursal España', -16.51367020382876,-68.12901272649856,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Gloria', -16.5374810965175,-68.08351289175957,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Chacaltaya', -16.487310706975936,-68.1713726408543,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Virgen de Copacabana', -16.505043468319002,-68.16152151478227,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia El Alto', -16.515575689551355,-68.16607337433095,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Veterinaria Biotech', -17.227901957778947,-67.9096365341285,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Botica Esperanza', -16.187684208975252,-67.7299022547715,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Selva Playa Maria', -16.193618922194595,-67.77762411661577,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Botica Heredia',-16.391804003423978, -67.522225317944,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Condori Copa', -16.019900932186427,-68.7074460321313,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,1,'Farmacia Catedral', -16.83873682935318,-68.70690539017559,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,2,'Farmacia Chavez', -17.76614267071092,-63.15180307977783,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Chavez Sucursal Banzer', -17.74009044782896,-63.173033736163525,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Unidas', -17.82736988165804,-63.18140351416174,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia FarmaCruz', -17.7961492690162,-63.14864329950574,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Iberica', -17.782909541517792,-63.18263225226192,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Cristal', -17.775226780544955,-63.20014171236304,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Andrecito', -16.570668412404174,-62.51212796646732,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Farmacorp', -17.054036548041417,-63.21906210010854,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Urkupiña', -15.843345270611556,-63.1219557630699,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Emanuel', -16.682233286078176,-63.829974490273365,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Shalom', -16.373775610943667,-60.958540873493355,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia San Ignacio', -16.37313507985526,-60.965338317086065,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia Farmacia', -18.852236818432235,-63.359644929669386,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia San Jorge', -18.330588901393433,-59.753492964910755,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,2,'Farmacia San Pedro', -18.411393628279633,-59.824904096303605,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,3,'Farmacia Santander', -17.98074105520161,-67.1242617389169,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia Jesus Maria', -17.984666468633286,-67.10393009959944,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia Karina Oruro', -17.945177452735194,-67.10544738600709,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia Oruro', -17.949161393880445,-67.12468657906898,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia Guadalupe Oruro', -17.962729215795754,-67.11060616019837,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia San Antonio de Oruro', -18.42210782288701,-67.97443864911705,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia Virgen de la Candelaria', -18.97981734934544,-68.38006316070879,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia El Sureño', -18.74329970082237,-67.50939667411139,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia de Challapata', -18.901467664419712,-66.76812718771676,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,3,'Farmacia San Andres de Caracollo', -17.63165246101499,-67.21521315039759,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,4,'Farmacia Madre de Dios SA',-19.596427625206324, -65.74433044791526,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia del Centro', -19.58688595288912,-65.75875000329268,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia Gessba', -19.56723479591682,-65.76913551639187,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia Cristo de las Americas', -19.56286754670205,-65.75059608804949,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia San Silvestre', -19.578718479150865,-65.7393522680826,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia Santana', -21.154191166471772,-67.14753018896062,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia San Cristobal', -21.152477696902157,-67.17978445539272,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia San Pablo Potosi',-20.46665125490773, -66.83961879365317,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia Virgen Sel Rosario', -20.449924502478307,-66.82760249726134,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia C6azon de Jesus', -20.466490429361027,-66.81095134402791,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia San Simon Uyuni', -20.47211922099492,-66.82185184124772,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia Luz de Vida', -21.444347992772133,-65.718713250313,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,4,'Farmacia 27 de Octubre', -20.81108330061837,-65.66223086020891,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,5,'Farmacia la Catolica',-19.05188176561999, -65.2433164076247,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Gutierrez', -19.020157228204095,-65.2462346509749,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Unifarm', -19.03103025863697,-65.25267195248267,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia MediPiel',-19.044985642684317, -65.26897978296901,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia FarmaSur', -19.06226597462173,-65.26649069305267,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Farmacorp - Sucursal Sucre', -19.032815314978713,-65.28013777254598,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Jerusalen', -19.79437199361379,-63.95603193332241,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Villa Charcaas', -20.703764455765263,-64.87014291672484,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Cristo Rey', -20.63289638996821,-65.19447808243387,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Botica Rios', -20.94337935041243,-65.29935292643559,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,5,'Farmacia Haase Perez', -20.105949186810317,-64.41322213345987,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,6,'Farmacia FarmaElias', -17.431720925386458,-66.16109350204881,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Chavez - Sucursal Suecia', -17.420618944108014,-66.13139099689307,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Bolivia Cochabamba', -17.39056178475737,-66.13039435694718,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Sucursal America', -17.35471331613342,-66.16162791892394,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Artesanal Cochabamba', -17.38525314710761,-66.15871891086027,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Rosales', -17.883984784033327,-65.35026814593495,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Boliviana', -18.169492792451756,-65.18397759837276,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Mizque', -18.00906805184629,-65.49082568676896,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia San Juan de Dios', -17.62683468533638,-65.77216608251528,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Tiraque', -17.42256254285224,-65.71962288850679,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Montaño', -17.541867697678875,-65.8411153610034,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,6,'Farmacia Salazar', -16.913325349992316,-65.39897265997324,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,7,'Farmacia Alafarma', -21.538923829604155,-64.74621695339076,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Gustavo', -21.52932645524815,-64.75483514095255,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Mia Farma',-21.51566321658912, -64.7315903113635,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Sheisa', -21.526842325629097,-64.71435393634847,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Farmacorp - Sucursal Eulogio Ruiz', -21.542367438619895,-64.71101590601278,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Chavez - Sucursal Tarija', -21.527317689261945,-64.75977688324362,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Bilbao', -21.26015672391481,-63.446592427645285,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Gran Chaco', -21.25183759555033,-63.47663316801488,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Villa Montes', -21.26930981210603,-63.465396096506716,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia Sol y Vid', -21.97180827642312,-63.674311535331796,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia SIES', -21.987408360342126,-63.69542588427728,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia FarmaSol', -21.9493602511492,-63.66229523918396,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,7,'Farmacia SandiFarma', -21.416524819224044,-64.75001319239603,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,8,'Farmacia REDDO', -11.05557390674315,-68.82874919954295,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Amazonica A y C', -11.028267612659493,-68.82578266567606,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Panamericana del Amazona', -11.033490796251874,-68.80243671887455,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Nirysan', -11.298097074564165,-68.70070350365168,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Mano de Dios', -11.481844827465281,-67.24903895160773,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Dra. Carolay', -11.492106430217072,-67.2425158194132,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Pando', -11.039499786535082,-68.82059513617462,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Terceros', -11.045710985680392,-68.80997980798178,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Señ6r de Mayo', -11.034190108780445,-68.78333941674602,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,8,'Farmacia Lourdes', -11.025959814073328,-68.78286843963642,1,1,now(), '198.168.0.1', now());
+
+INSERT INTO drugstore VALUES (null,9,'Farmacia San Jose', -11.034453052259591,-65.96313122903791,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Beni Mam6e', -11.024408812559308,-66.04155609311901,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Beniana', -10.821019423445676,-65.36482100089056,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Rio Farma', -10.821420445143836,-65.35961540725752,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Estahel', -13.258181700733177,-64.05511580527921,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Don Lalo', -13.742784789488683,-65.42671414295474,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Doña Leo', -14.288766897598872,-67.32346635070647,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Farmed', -14.849958248362281,-66.75027660842028,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Jhadiel', -14.841813159113418,-64.89470320061714,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Santa Fe', -14.824052719697859,-64.88663963400911,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia El Carmen', -14.82444741196615,-64.8966425394216,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia San Gerardo', -14.841147293532016,-64.90600913565497,1,1,now(), '198.168.0.1', now());
+INSERT INTO drugstore VALUES (null,9,'Farmacia Cruz Verde', -14.824821212100758,-64.91531967412526,1,1,now(), '198.168.0.1', now());
+COMMIT;
