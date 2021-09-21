@@ -4,11 +4,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="software.Backend.Covid19.dao.HospitalDao">
 
-
-
     <insert id="addHospital" parameterType="software.Backend.Covid19.shared.model.Hospital">
-        INSERT INTO hospital VALUES (null,#{cityId}, #{name}, #{latitude}, #{longitude}, #{status}, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost}, #{transaction.txUpdate}
-        )
+        INSERT INTO hospital VALUES (null,#{cityId}, #{name}, #{latitude}, #{longitude}, #{status}, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost}, #{transaction.txUpdate})
     </insert>
 
     <resultMap type="software.Backend.Covid19.shared.dto.HospitalRequest" id="hospitalMap">
@@ -29,6 +26,7 @@
         and b.status=1
         and b.id_city=#{cityId}
     </select>
+
     <select  resultMap="hospitalMap" id="getHospitalAll">
         SELECT b.city as nameCity,
         a.name as nameHospital,
