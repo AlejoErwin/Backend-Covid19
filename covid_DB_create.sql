@@ -4,6 +4,7 @@ USE covid_19_DB;
 
 CREATE TABLE City (
                       id_city int NOT NULL AUTO_INCREMENT,
+                      id_country int NOT NULL,
                       city varchar(100) NOT NULL,
                       latitude real(21,12) NOT NULL,
                       longitude real(21,12) NOT NULL,
@@ -159,6 +160,10 @@ CREATE TABLE User (
 );
 
 -- foreign keys
+-- Reference: City_Country (table: City)
+ALTER TABLE City ADD CONSTRAINT City_Country FOREIGN KEY City_Country (id_country)
+    REFERENCES Country (id_country);
+
 -- Reference: Country_covid_data_Country (table: Country_covid_data)
 ALTER TABLE Country_covid_data ADD CONSTRAINT Country_covid_data_Country FOREIGN KEY Country_covid_data_Country (id_country)
     REFERENCES Country (id_country);
