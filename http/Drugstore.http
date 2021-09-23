@@ -1,0 +1,9 @@
+GET http://localhost:8080/v1/drugstore/list/1
+Accept: application/json
+
+###
+
+GET http://localhost:8080/v1/drugstore/list/all
+Accept: application/json
+
+###

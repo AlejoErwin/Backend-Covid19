@@ -1,13 +1,12 @@
 package software.Backend.Covid19.shared.dto;
 
-public class HospitalRequest {
-
+public class DrugstoreRequest {
     private String nameCity;
-    private String nameHospital;
+    private String nameDrugstore;
     private Double latitude;
     private Double longitude;
 
-    public HospitalRequest() {
+    public DrugstoreRequest() {
     }
 
     public String getNameCity() {
@@ -18,12 +17,12 @@ public class HospitalRequest {
         this.nameCity = nameCity;
     }
 
-    public String getNameHospital() {
-        return nameHospital;
+    public String getNameDrugstore() {
+        return nameDrugstore;
     }
 
-    public void setNameHospital(String nameHospital) {
-        this.nameHospital = nameHospital;
+    public void setNameDrugstore(String nameDrugstore) {
+        this.nameDrugstore = nameDrugstore;
     }
 
     public Double getLatitude() {
@@ -44,9 +43,9 @@ public class HospitalRequest {
 
     @Override
     public String toString() {
-        return "HospitalRequest{" +
+        return "DrugstoreRequest{" +
                 "nameCity='" + nameCity + '\'' +
-                ", nameHospital='" + nameHospital + '\'' +
+                ", nameDrugstore='" + nameDrugstore + '\'' +
                 ", latitude=" + latitude +
                 ", longitude=" + longitude +
                 '}';

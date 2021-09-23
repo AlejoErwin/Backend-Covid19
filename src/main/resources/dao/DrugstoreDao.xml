@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="software.Backend.Covid19.dao.DrugstoreDao">
+
+
+    <resultMap type="software.Backend.Covid19.shared.dto.DrugstoreRequest" id="drugstoreMap">
+        <result column="nameCity" property="nameCity"/>
+        <result column="nameDrugstore" property="nameDrugstore"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+    <select  resultMap="drugstoreMap" id="getHospitalCityId">
+        SELECT b.city as nameCity,
+        a.name as nameDrugstore,
+        a.latitude as latitude,
+        a.longitude as longitude
+        FROM drugstore a, city b
+        WHERE
+        b.id_city=a.id_city and
+        a.status=1
+        and b.status=1
+        and b.id_city=#{cityId}
+    </select>
+
+    <select  resultMap="drugstoreMap" id="getHospitalAll">
+        SELECT b.city as nameCity,
+        a.name as nameDrugstore,
+        a.latitude as latitude,
+        a.longitude as longitude
+        FROM drugstore a, city b
+        WHERE
+        b.id_city=a.id_city and
+        a.status=1
+        and b.status=1
+    </select>
+
+</mapper>
