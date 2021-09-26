@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="software.Backend.Covid19.dao.CityDao">
+
+
+    <resultMap type="software.Backend.Covid19.shared.dto.CityRequest" id="cityAllMap">
+        <result column="cityId" property="cityId"/>
+        <result column="city" property="city"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+    </resultMap>
+    <select  resultMap="cityAllMap" id="getCityAll">
+        SELECT a.id_city as cityId,
+        a.city as city,
+        a.latitude as latitude,
+        a.longitude as longitude
+        FROM city a
+        WHERE
+        a.status=1
+    </select>
+
+</mapper>
