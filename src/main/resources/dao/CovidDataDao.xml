@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="software.Backend.Covid19.dao.CovidDataDao">
+    <insert id="insertCovidData" parameterType="software.Backend.Covid19.shared.model.CovidData">
+        INSERT INTO covid_data (`id_covid_data`, `id_page_url`, `death_cases`, `confirmed_cases`, `vaccinated`, `cumulative_cases`, `recuperated`, `date`, `status`, `tx_id`, `tx_date`, `tx_host`, `tx_update`)
+        VALUES (null, #{idPageUrl}, #{deathCases}, #{confirmedCases}, #{vaccinated}, #{cumulativeCases}, #{recuperated}, #{date}, 1, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},
+                #{transaction.txUpdate})
+    </insert>
+
+    <update id="updateCovidData" parameterType="software.Backend.Covid19.shared.model.CovidData">
+        UPDATE covid_data
+        set id_page_url=#{idPageUrl},
+            death_cases=#{deathCases},
+            confirmed_cases=#{confirmedCases},
+            vaccinated=#{vaccinated},
+            cumulative_cases=#{cumulativeCases},
+            recuperated=#{recuperated},
+            tx_id=#{transaction.txId},
+            tx_host=#{transaction.txHost},
+            tx_update=#{transaction.txUpdate}
+        WHERE id_covid_data=#{idCovidData}
+          and status=1;
+    </update>
+
+    <insert id="insertMultiCovidData" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="idCovidData">
+        INSERT INTO covid_data (id_covid_data,`id_page_url`,`death_cases`,
+                `confirmed_cases`,`vaccinated`,`cumulative_cases`,`recuperated`,`date`,
+                `status`,`tx_id`,`tx_date`,`tx_host`,`tx_update`)
+        VALUES
+        <foreach collection="list" item="element" index="index" open="(" separator="),(" close=")">
+            null,
+            #{element.idPageUrl},
+            #{element.deathCases},
+            #{element.confirmedCases},
+            #{element.vaccinated},
+            #{element.cumulativeCases},
+            #{element.recuperated},
+            #{element.date},
+            1,
+            #{element.transaction.txId},
+            #{element.transaction.txDate},
+            #{element.transaction.txHost},
+            #{element.transaction.txUpdate}
+        </foreach>
+    </insert>
+    <insert id="insertCountryCovidData" parameterType="software.Backend.Covid19.shared.model.CountryCovidData">
+        INSERT INTO country_covid_data (`id_country_covid_data`, `id_country`, `id_covid_data`, `status`, `tx_id`, `tx_date`, `tx_host`, `tx_update`)
+        VALUES (null, #{idCountry}, #{idCovidData}, 1,
+                #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+    <select id="verifyCountryCovidData" resultType="Integer">
+        SELECT COUNT(*)
+        FROM country_covid_data mcd
+                 INNER JOIN covid_data cd
+                            on cd.id_covid_data=mcd.id_covid_data
+        WHERE
+            mcd.id_country = #{idCountry}
+          and cd.date=#{date}
+    </select>
+    <select id="getCovidDataCountryIdDate" resultType="Integer">
+        SELECT cd.id_covid_data
+        FROM country_covid_data mcd
+                 INNER JOIN covid_data cd
+                            on cd.id_covid_data=mcd.id_covid_data
+        WHERE
+            mcd.id_country = #{idCountry}
+          and cd.date=#{date}
+            LIMIT 1
+    </select>
+
+    <select id="getLastIdCovidData" resultType="Integer">
+        SELECT LAST_INSERT_ID();
+    </select>
+    <select id="selectDataCovidExist" resultType="Integer">
+        SELECT COUNT(*)
+        FROM covid_data a
+        WHERE a.id_page_url = #{covidData.idPageUrl}
+          and a.death_cases = #{covidData.deathCases}
+          and a.confirmed_cases = #{covidData.confirmedCases}
+          and a.vaccinated = #{covidData.vaccinated}
+          and a.cumulative_cases = #{covidData.cumulativeCases}
+          and a.recuperated = #{covidData.recuperated}
+          and a.date = #{dateSelect}
+          and a.status = 1
+    </select>
+
+    <select id="selectDataExist" resultType="Integer">
+        SELECT COUNT(*)
+        FROM covid_data a
+                 INNER JOIN municipality_covid_data mcd
+                            ON a.id_covid_data = mcd.id_covid_data
+        WHERE a.date = #{dateSelect}
+          and mcd.id_municipality = #{municipalityId}
+          and a.status = 1
+    </select>
+
+</mapper>
