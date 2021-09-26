@@ -102,7 +102,7 @@ public class CovidDataUtil {
             c.add(Calendar.DAY_OF_YEAR, -length);
             date = c.getTime();
             ArrayList arr;
-            System.out.println(c.getTime());
+            //System.out.println(c.getTime());
             for(int i=0;i<length;i++){
                 arr=new ArrayList();
                 arr.add(date);
@@ -125,14 +125,14 @@ public class CovidDataUtil {
     }
 
     //@Scheduled(fixedRate = 30000L)
-    // @GetMapping(value = "/swagger")
+    //@GetMapping(value = "/swagger")
     public void readDataJsonSwagger() {
         try {
             List<LocationResponse> countries=countryDao.countries();
             for(int i=0;i<countries.size();i++){
-                var general=getDataCovid(countries.get(i).getLocationName(),300);
-                var vaccine=getVaccine(countries.get(i).getLocationName(),300);
-                System.out.println(vaccine.toString());
+                var general=getDataCovid(countries.get(i).getLocationName(),50);
+                var vaccine=getVaccine(countries.get(i).getLocationName(),50);
+                //System.out.println(vaccine.toString());
                 Date date;
                 Calendar cal = Calendar.getInstance();
                 cal.setTime(new Date());
@@ -145,6 +145,7 @@ public class CovidDataUtil {
                 Integer selectData;
                 Integer covidDataId;
                 String dateString;
+                //System.out.println("entra nove");
                 for(int j=0;j<general.size();j++){
                     covidData = new CovidData();
                     transaction = new Transaction();
@@ -173,6 +174,7 @@ public class CovidDataUtil {
                     covidData.setTransaction(transaction);
                     dateString=dateSelect.format((Date) general.get(j).get(0));
                     selectData = covidDataDao.verifyCountryCovidData(dateString,countries.get(i).getIdLocation());
+                    //System.out.println("ESSSS "+selectData);
                     if(j!=0 && j!=1) {
                         if (selectData == 0) {
                             covidDataDao.insertCovidData(covidData);
@@ -195,6 +197,7 @@ public class CovidDataUtil {
                                 }
                             }
                         }
+                        //System.out.println("uno");
                     }
                 }
             }

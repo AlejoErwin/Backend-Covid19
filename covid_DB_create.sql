@@ -2,6 +2,8 @@ drop database covid_19_DB;
 create database covid_19_DB;
 USE covid_19_DB;
 
+-- tables
+-- Table: City
 CREATE TABLE City (
                       id_city int NOT NULL AUTO_INCREMENT,
                       id_country int NOT NULL,
@@ -45,7 +47,7 @@ CREATE TABLE Country (
 
 -- Table: Country_covid_data
 CREATE TABLE Country_covid_data (
-                                    id_city_covid_data int NOT NULL AUTO_INCREMENT,
+                                    id_country_covid_data int NOT NULL AUTO_INCREMENT,
                                     status int NOT NULL,
                                     id_country int NOT NULL,
                                     id_covid_data int NOT NULL,
@@ -53,7 +55,7 @@ CREATE TABLE Country_covid_data (
                                     tx_date datetime NOT NULL,
                                     tx_host varchar(100) NOT NULL,
                                     tx_update datetime NOT NULL,
-                                    CONSTRAINT Country_covid_data_pk PRIMARY KEY (id_city_covid_data)
+                                    CONSTRAINT Country_covid_data_pk PRIMARY KEY (id_country_covid_data)
 );
 
 -- Table: Covid_data
@@ -65,7 +67,7 @@ CREATE TABLE Covid_data (
                             vaccinated int NOT NULL,
                             cumulative_cases int NOT NULL,
                             recuperated int NOT NULL,
-                            date datetime NOT NULL,
+                            date date NOT NULL,
                             status int NOT NULL,
                             tx_id int NOT NULL,
                             tx_date datetime NOT NULL,
