@@ -75,7 +75,6 @@ public class CityBl {
                     covidDataDao.createCovidData(covidData);
                     CityCovidData cityCovidData = new CityCovidData();
                     cityCovidData.setIdCity(cityId);
-                    LOGGER.error("Id Find: "+String.valueOf(transactionDao.getLastInsertId()));
                     cityCovidData.setIdCovidData(transactionDao.getLastInsertId());
 
                     cityCovidData.setStatus(1);
