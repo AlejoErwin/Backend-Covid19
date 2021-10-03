@@ -3,6 +3,9 @@ package software.Backend.Covid19.bl.util.csv;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.multipart.MultipartFile;
 import software.Backend.Covid19.shared.dto.DataCsvCityRequest;
 
 import java.io.BufferedReader;
@@ -18,31 +21,43 @@ public class CSVHelper {
     public static String TYPE = "text/csv";
 
     static String[] HEADERs = { "Fecha", "Casos", "Casos_Acum", "Muertes", "Muertes_Acum", "Recuperados", "Recuperados_Acum"};
-    public static List<DataCsvCityRequest> csvToDataDepartmentCsvRequest(InputStream is) {
+
+
+    public static Logger LOGGER = LoggerFactory.getLogger(CSVHelper.class);
+    public static boolean hasCSVFormat(MultipartFile file) {
+        System.out.println(file.getContentType());
+        if (TYPE.equals(file.getContentType())
+                || file.getContentType().equals("application/vnd.ms-excel")) {
+            return true;
+        }
+
+        return false;
+    }
+    public static List<DataCsvCityRequest> CityCsvRequest(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
 
-            List<DataCsvCityRequest> dataDepartmentCsvRequestList = new ArrayList<>();
+            List<DataCsvCityRequest> dataCityCsvRequestList = new ArrayList<>();
 
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             for (CSVRecord csvRecord : csvRecords) {
-                DataCsvCityRequest dataDepartmentCsvRequest = new DataCsvCityRequest();
-                dataDepartmentCsvRequest.setDate(sdf.parse(csvRecord.get("Fecha")));
-                //LOGGER.error(String.valueOf(dataCsvRequest.getDate()));
-                dataDepartmentCsvRequest.setConfirmed(Integer.parseInt(csvRecord.get("Casos")));
-                dataDepartmentCsvRequest.setConfirmedCumulative(Integer.parseInt(csvRecord.get("Casos_Acum")));
-                dataDepartmentCsvRequest.setDeaths(Integer.parseInt(csvRecord.get("Muertes")));
-                dataDepartmentCsvRequest.setDeathsCumulative(Integer.parseInt(csvRecord.get("Muertes_Acum")));
-                dataDepartmentCsvRequest.setRecovered(Integer.parseInt(csvRecord.get("Recuperados")));
-                dataDepartmentCsvRequest.setRecoveredCumulative(Integer.parseInt(csvRecord.get("Recuperados_Acum")));
-                dataDepartmentCsvRequest.setVaccinated(Integer.parseInt(csvRecord.get("Vacunados")));
-                dataDepartmentCsvRequestList.add(dataDepartmentCsvRequest);
+                DataCsvCityRequest dataCityCsvRequest = new DataCsvCityRequest();
+                dataCityCsvRequest.setDate(sdf.parse(csvRecord.get("Fecha")));
+                //LOGGER.error(String.valueOf(dataCityCsvRequest.getDate()));
+                dataCityCsvRequest.setConfirmed(Integer.parseInt(csvRecord.get("Confirm")));
+                dataCityCsvRequest.setConfirmedCumulative(Integer.parseInt(csvRecord.get("Confirm_Acum")));
+                dataCityCsvRequest.setDeaths(Integer.parseInt(csvRecord.get("Muertes")));
+                dataCityCsvRequest.setDeathsCumulative(Integer.parseInt(csvRecord.get("Muertes_Acum")));
+                dataCityCsvRequest.setRecovered(Integer.parseInt(csvRecord.get("Recuperados")));
+                dataCityCsvRequest.setRecoveredCumulative(Integer.parseInt(csvRecord.get("Recuperados_Acum")));
+                dataCityCsvRequest.setVaccinated(Integer.parseInt(csvRecord.get("Vacunados_Prim"))+Integer.parseInt(csvRecord.get("Vacunados_Seg")));
+                dataCityCsvRequestList.add(dataCityCsvRequest);
             }
 
-            return dataDepartmentCsvRequestList;
+            return dataCityCsvRequestList;
         } catch (IOException | ParseException e) {
             throw new RuntimeException("fail to parse CSV file: " + e.getMessage());
         }

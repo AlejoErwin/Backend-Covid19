@@ -11,4 +11,6 @@ public interface CityDao {
 
     public List<CityRequest> getCityAll();
 
+    public Integer cityIdByIso(String isoCity);
+
 }

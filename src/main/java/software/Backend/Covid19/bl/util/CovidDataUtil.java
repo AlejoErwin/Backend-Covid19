@@ -160,14 +160,14 @@ public class CovidDataUtil {
                         covidData.setDeathCases((Integer)general.get(j).get(2));
                         covidData.setConfirmedCases((Integer) general.get(i).get(1));
                         covidData.setVaccinated((Integer)vaccine.get(i).get(1));
-                        covidData.setCumulativeCases((Integer) general.get(j).get(1));
+                        covidData.setConfirmedCumulative((Integer) general.get(j).get(1));
                         covidData.setRecuperated((Integer) general.get(i).get(3));
                     }
                     else{
                         covidData.setDeathCases((Integer) general.get(j).get(2)-(Integer) general.get(j-1).get(2));
                         covidData.setConfirmedCases((Integer) general.get(j).get(1)-(Integer) general.get(j-1).get(1));
                         covidData.setVaccinated(-1);
-                        covidData.setCumulativeCases((Integer) general.get(j).get(1));
+                        covidData.setConfirmedCumulative((Integer) general.get(j).get(1));
                         covidData.setRecuperated((Integer) general.get(j).get(3)-(Integer) general.get(j-1).get(3));
                     }
                     covidData.setDate((Date) general.get(j).get(0));

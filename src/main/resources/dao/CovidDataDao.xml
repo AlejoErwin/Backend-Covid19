@@ -96,4 +96,26 @@
           and a.status = 1
     </select>
 
+
+
+    <select id="lastDateCity" resultType="java.util.Date">
+        SELECT MAX(date)
+        FROM city a, city_covid_data b, covid_data c
+        WHERE
+            a.id_city = 1
+            and a.id_city=b.id_city
+            and b.id_covid_data=c.id_covid_data
+            and a.status = 1
+            and c.status=1
+    </select>
+
+    <insert id="createCovidData" parameterType="software.Backend.Covid19.shared.model.CovidData">
+        INSERT INTO covid_data
+        VALUES (null, #{idPageUrl}, #{confirmedCases}, #{confirmedCumulative}, #{deathCases}, #{deathCumulative}, #{recuperated}, #{recuperatedCumulative}, #{vaccinated}, #{date}, #{status},
+        #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+    <insert id="createCityCovidData" parameterType="software.Backend.Covid19.shared.model.CityCovidData">
+        INSERT INTO city_covid_data VALUES (null, #{idCity}, #{idCovidData}, #{status},
+        #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},#{transaction.txUpdate})
+    </insert>
 </mapper>

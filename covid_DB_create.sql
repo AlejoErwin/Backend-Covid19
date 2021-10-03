@@ -7,6 +7,7 @@ USE covid_19_DB;
 CREATE TABLE City (
                       id_city int NOT NULL AUTO_INCREMENT,
                       id_country int NOT NULL,
+                      iso varchar(20) NOT NULL,
                       city varchar(100) NOT NULL,
                       latitude real(21,12) NOT NULL,
                       longitude real(21,12) NOT NULL,
@@ -48,9 +49,9 @@ CREATE TABLE Country (
 -- Table: Country_covid_data
 CREATE TABLE Country_covid_data (
                                     id_country_covid_data int NOT NULL AUTO_INCREMENT,
-                                    status int NOT NULL,
                                     id_country int NOT NULL,
                                     id_covid_data int NOT NULL,
+                                    status int NOT NULL,
                                     tx_id int NOT NULL,
                                     tx_date datetime NOT NULL,
                                     tx_host varchar(100) NOT NULL,
@@ -61,7 +62,7 @@ CREATE TABLE Country_covid_data (
 -- Table: Covid_data
 CREATE TABLE Covid_data (
                             id_covid_data int NOT NULL AUTO_INCREMENT,
-                            id_page_url int NOT NULL,
+                            id_page_url int NULL,
                             confirmed_cases int NOT NULL,
                             confirmed_cumulative int NOT NULL,
                             death_cases int NOT NULL,
@@ -168,6 +169,14 @@ CREATE TABLE User (
 ALTER TABLE City ADD CONSTRAINT City_Country FOREIGN KEY City_Country (id_country)
     REFERENCES Country (id_country);
 
+-- Reference: City_covid_data_City (table: City_covid_data)
+ALTER TABLE City_covid_data ADD CONSTRAINT City_covid_data_City FOREIGN KEY City_covid_data_City (id_city)
+    REFERENCES City (id_city);
+
+-- Reference: City_covid_data_Covid_data (table: City_covid_data)
+ALTER TABLE City_covid_data ADD CONSTRAINT City_covid_data_Covid_data FOREIGN KEY City_covid_data_Covid_data (id_covid_data)
+    REFERENCES Covid_data (id_covid_data);
+
 -- Reference: Country_covid_data_Country (table: Country_covid_data)
 ALTER TABLE Country_covid_data ADD CONSTRAINT Country_covid_data_Country FOREIGN KEY Country_covid_data_Country (id_country)
     REFERENCES Country (id_country);
@@ -199,13 +208,5 @@ ALTER TABLE Municipality_covid_data ADD CONSTRAINT Table_11_Covid_data FOREIGN K
 -- Reference: Table_11_Municipality (table: Municipality_covid_data)
 ALTER TABLE Municipality_covid_data ADD CONSTRAINT Table_11_Municipality FOREIGN KEY Table_11_Municipality (id_municipality)
     REFERENCES Municipality (id_municipality);
-
--- Reference: Table_25_City (table: City_covid_data)
-ALTER TABLE City_covid_data ADD CONSTRAINT Table_25_City FOREIGN KEY Table_25_City (id_covid_data)
-    REFERENCES City (id_city);
-
--- Reference: Table_25_Covid_data (table: City_covid_data)
-ALTER TABLE City_covid_data ADD CONSTRAINT Table_25_Covid_data FOREIGN KEY Table_25_Covid_data (id_city)
-    REFERENCES Covid_data (id_covid_data);
 
 -- End of file.

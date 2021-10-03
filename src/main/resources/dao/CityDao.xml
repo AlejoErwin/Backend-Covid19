@@ -21,4 +21,11 @@
         a.status=1
     </select>
 
+    <select id="cityIdByIso" resultType="java.lang.Integer">
+        SELECT a.id_city
+        FROM city a
+        WHERE
+            a.iso = "BO-L"
+            and a.status = 1
+    </select>
 </mapper>

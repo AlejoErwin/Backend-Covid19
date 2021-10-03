@@ -5,30 +5,56 @@ import java.util.Date;
 public class CovidData {
     private Integer idCovidData;
     private Integer idPageUrl;
-    private Integer deathCases;
+
     private Integer confirmedCases;
-    private Integer vaccinated;
-    private Integer cumulativeCases;
+    private Integer confirmedCumulative; //esto cambio nombre cumulativeCases
+
+    private Integer deathCases;
+    private Integer deathCumulative; //esto agrege
+
     private Integer recuperated;
+    private Integer recuperatedCumulative; //esto agrege
+
+    private Integer vaccinated;
     private Date date;
     private Integer status;
     private Transaction transaction;
+
+
 
     public CovidData(){
         transaction = new Transaction();
     }
 
-    public CovidData(Integer idCovidData, Integer idPageUrl, Integer deathCases, Integer confirmedCases, Integer vaccinated, Integer cumulativeCases, Integer recuperated, Date date, Integer status, Transaction transaction) {
+    public CovidData(Integer idCovidData, Integer idPageUrl, Integer confirmedCases, Integer confirmedCumulative, Integer deathCases, Integer deathCumulative, Integer recuperated, Integer recuperatedCumulative, Integer vaccinated, Date date, Integer status, Transaction transaction) {
         this.idCovidData = idCovidData;
         this.idPageUrl = idPageUrl;
-        this.deathCases = deathCases;
         this.confirmedCases = confirmedCases;
-        this.vaccinated = vaccinated;
-        this.cumulativeCases = cumulativeCases;
+        this.confirmedCumulative = confirmedCumulative;
+        this.deathCases = deathCases;
+        this.deathCumulative = deathCumulative;
         this.recuperated = recuperated;
+        this.recuperatedCumulative = recuperatedCumulative;
+        this.vaccinated = vaccinated;
         this.date = date;
         this.status = status;
         this.transaction = transaction;
+    }
+
+    public Integer getDeathCumulative() {
+        return deathCumulative;
+    }
+
+    public void setDeathCumulative(Integer deathCumulative) {
+        this.deathCumulative = deathCumulative;
+    }
+
+    public Integer getRecuperatedCumulative() {
+        return recuperatedCumulative;
+    }
+
+    public void setRecuperatedCumulative(Integer recuperatedCumulative) {
+        this.recuperatedCumulative = recuperatedCumulative;
     }
 
     public Integer getIdCovidData() {
@@ -71,12 +97,12 @@ public class CovidData {
         this.vaccinated = vaccinated;
     }
 
-    public Integer getCumulativeCases() {
-        return cumulativeCases;
+    public Integer getConfirmedCumulative() {
+        return confirmedCumulative;
     }
 
-    public void setCumulativeCases(Integer cumulativeCases) {
-        this.cumulativeCases = cumulativeCases;
+    public void setConfirmedCumulative(Integer confirmedCumulative) {
+        this.confirmedCumulative = confirmedCumulative;
     }
 
     public Integer getRecuperated() {
@@ -116,11 +142,13 @@ public class CovidData {
         return "CovidData{" +
                 "idCovidData=" + idCovidData +
                 ", idPageUrl=" + idPageUrl +
-                ", deathCases=" + deathCases +
                 ", confirmedCases=" + confirmedCases +
-                ", vaccinated=" + vaccinated +
-                ", cumulativeCases=" + cumulativeCases +
+                ", confirmedCumulative=" + confirmedCumulative +
+                ", deathCases=" + deathCases +
+                ", deathCumulative=" + deathCumulative +
                 ", recuperated=" + recuperated +
+                ", recuperatedCumulative=" + recuperatedCumulative +
+                ", vaccinated=" + vaccinated +
                 ", date=" + date +
                 ", status=" + status +
                 ", transaction=" + transaction +

@@ -9,4 +9,5 @@ import java.util.List;
 public interface CountryDao {
 
     public List<LocationResponse> countries();
+
 }
