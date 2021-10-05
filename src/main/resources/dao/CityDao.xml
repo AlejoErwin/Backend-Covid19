@@ -25,7 +25,7 @@
         SELECT a.id_city
         FROM city a
         WHERE
-            a.iso = "BO-L"
+            a.iso = #{isoCity}
             and a.status = 1
     </select>
 </mapper>

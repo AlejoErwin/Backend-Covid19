@@ -102,7 +102,20 @@
         SELECT MAX(date)
         FROM city a, city_covid_data b, covid_data c
         WHERE
-            a.id_city = 1
+            a.id_city = #{cityId}
+            and a.id_city=b.id_city
+            and b.id_covid_data=c.id_covid_data
+            and a.status = 1
+            and c.status=1
+    </select>
+
+
+    <select id="seeDateExists" resultType="java.util.Date">
+        SELECT MAX(date)
+        FROM city a, city_covid_data b, covid_data c
+        WHERE
+            a.id_city = #{cityId}
+            and c.date=#{dateData}
             and a.id_city=b.id_city
             and b.id_covid_data=c.id_covid_data
             and a.status = 1

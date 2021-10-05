@@ -16,6 +16,7 @@ import software.Backend.Covid19.shared.model.CovidData;
 import software.Backend.Covid19.shared.model.Transaction;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,17 +46,27 @@ public class CityBl {
             LOGGER.error(String.valueOf(cityId));
             List<DataCsvCityRequest> dataCsvCityRequest = CSVHelper.CityCsvRequest(file.getInputStream());
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date lastDateCovid = covidDataDao.lastDateCity(cityId);
-            LOGGER.error("Last: "+String.valueOf(lastDateCovid));
-            if(lastDateCovid == null){
-                String aux = "1970-01-01";
-                lastDateCovid = sdf.parse(aux);
-            }
+            //Date lastDateCovid = covidDataDao.lastDateCity(cityId);
+            //LOGGER.error("Last: "+String.valueOf(lastDateCovid));
+            //if(lastDateCovid == null){
+              //  String aux = "1970-01-01";
+               // lastDateCovid = sdf.parse(aux);
+            //}
 
             CovidData covidData = new CovidData();
 
             for(DataCsvCityRequest data : dataCsvCityRequest){
-                if(lastDateCovid.before(data.getDate())){
+                //if(lastDateCovid.before(data.getDate())){
+
+                covidData.setDate(data.getDate());
+                DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
+                String convertido = fecha.format(covidData.getDate());
+                System.out.println("ff: "+convertido);
+                LOGGER.error("FEcha: "+String.valueOf(covidData.getDate())+" idCity"+ String.valueOf(cityId)+" fecha 2"+String.valueOf(data.getDate()));
+                Date exists=covidDataDao.seeDateExists(convertido,cityId);
+                LOGGER.error("exists: "+String.valueOf(exists));
+
+                if (exists==null){
                     covidData.setIdPageUrl(null);
 
                     covidData.setConfirmedCases(data.getConfirmed());
@@ -68,7 +79,6 @@ public class CityBl {
                     covidData.setRecuperatedCumulative(data.getRecoveredCumulative());
 
                     covidData.setVaccinated(data.getVaccinated());
-                    covidData.setDate(data.getDate());
                     covidData.setStatus(1);
                     covidData.setTransaction(transaction);
 
@@ -82,11 +92,13 @@ public class CityBl {
                     covidDataDao.createCityCovidData(cityCovidData);
                 }
 
+              //  }
+
 
             }
 
 
-        } catch (IOException | ParseException e){
+        } catch (IOException e){
             throw new RuntimeException("fail to store csv data: " + e.getMessage());
         }
     }

@@ -19,4 +19,6 @@ public interface CovidDataDao {
     public Date lastDateCity(Integer cityId);
     public void createCovidData(CovidData covidData);
     public void createCityCovidData(CityCovidData cityCovidData);
+
+    public Date seeDateExists(String dateData, Integer cityId);
 }
