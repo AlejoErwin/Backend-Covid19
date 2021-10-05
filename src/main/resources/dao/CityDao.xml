@@ -28,4 +28,22 @@
             a.iso = #{isoCity}
             and a.status = 1
     </select>
+
+    <resultMap type="software.Backend.Covid19.shared.dto.CityRequest" id="dataByCityMap">
+        <result column="confirmed" property="confirmed"/>
+        <result column="deaths" property="deaths"/>
+        <result column="recovered" property="recovered"/>
+    </resultMap>
+    <select  resultMap="dataByCityMap" id="getDataByCity">
+        SELECT
+        MAX(c.confirmed_cumulative) as confirmed,
+        MAX(c.death_cumulative) as deaths,
+        MAX(c.recuperated_cumulative) as recovered
+        FROM city a, city_covid_data b, covid_data c
+        WHERE
+        a.status=1
+        and a.id_city=#{cityId}
+        and a.id_city=b.id_city
+        and b.id_covid_data=c.id_covid_data
+    </select>
 </mapper>

@@ -6,7 +6,7 @@ public class CityRequest {
     private Double latitude;
     private Double longitude;
     private Integer confirmed;
-    private Integer Deaths;
+    private Integer deaths;
     private Integer recovered;
 
 
@@ -54,11 +54,11 @@ public class CityRequest {
     }
 
     public Integer getDeaths() {
-        return Deaths;
+        return deaths;
     }
 
     public void setDeaths(Integer deaths) {
-        Deaths = deaths;
+        this.deaths = deaths;
     }
 
     public Integer getRecovered() {
@@ -67,5 +67,18 @@ public class CityRequest {
 
     public void setRecovered(Integer recovered) {
         this.recovered = recovered;
+    }
+
+    @Override
+    public String toString() {
+        return "CityRequest{" +
+                "cityId=" + cityId +
+                ", city='" + city + '\'' +
+                ", latitude=" + latitude +
+                ", longitude=" + longitude +
+                ", confirmed=" + confirmed +
+                ", deaths=" + deaths +
+                ", recovered=" + recovered +
+                '}';
     }
 }

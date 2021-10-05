@@ -19,6 +19,7 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -106,7 +107,20 @@ public class CityBl {
 
 
     public List<CityRequest> getCityAll() {
-        return cityDao.getCityAll();
+        List<CityRequest> data =cityDao.getCityAll();
+        List<CityRequest> cityRequests = new ArrayList<>();
+        for (int i=0;i<data.size();i++){
+            CityRequest cityRequest = new CityRequest();
+            cityRequest= data.get(i);
+            CityRequest cityData = cityDao.getDataByCity(cityRequest.getCityId());
+            if (cityData!=null){
+                cityRequest.setDeaths(cityData.getDeaths());
+                cityRequest.setConfirmed(cityData.getConfirmed());
+                cityRequest.setRecovered(cityData.getRecovered());
+            }
+            cityRequests.add(cityRequest);
+        }
+        return cityRequests;
     }
 
 
