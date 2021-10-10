@@ -4,19 +4,23 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="software.Backend.Covid19.dao.CovidDataDao">
     <insert id="insertCovidData" parameterType="software.Backend.Covid19.shared.model.CovidData">
-        INSERT INTO covid_data (`id_covid_data`, `id_page_url`, `death_cases`, `confirmed_cases`, `vaccinated`, `cumulative_cases`, `recuperated`, `date`, `status`, `tx_id`, `tx_date`, `tx_host`, `tx_update`)
-        VALUES (null, #{idPageUrl}, #{deathCases}, #{confirmedCases}, #{vaccinated}, #{cumulativeCases}, #{recuperated}, #{date}, 1, #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},
-                #{transaction.txUpdate})
+        INSERT INTO covid_data (`id_covid_data`, `id_page_url`, `confirmed_cases`, `confirmed_cumulative`, `death_cases`, `death_cumulative`,
+                                `recuperated_cases`, `recuperated_cumulative`, `vaccinated`, `date`, `status`, `tx_id`, `tx_date`, `tx_host`, `tx_update`)
+                                VALUES (null, #{idPageUrl}, #{confirmedCases}, #{confirmedCumulative}, #{deathCases},
+                                  #{deathCumulative}, #{recuperated}, #{recuperatedCumulative}, #{vaccinated}, #{date}, 1,
+                                  #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost}, #{transaction.txUpdate})
     </insert>
 
     <update id="updateCovidData" parameterType="software.Backend.Covid19.shared.model.CovidData">
         UPDATE covid_data
         set id_page_url=#{idPageUrl},
-            death_cases=#{deathCases},
             confirmed_cases=#{confirmedCases},
+            confirmed_cumulative=#{confirmedCumulative},
+            death_cases=#{deathCases},
+            death_cumulative=#{deathCumulative},
+            recuperated_cases=#{recuperated},
+            recuperated_cumulative= #{recuperatedCumulative},
             vaccinated=#{vaccinated},
-            cumulative_cases=#{cumulativeCases},
-            recuperated=#{recuperated},
             tx_id=#{transaction.txId},
             tx_host=#{transaction.txHost},
             tx_update=#{transaction.txUpdate}

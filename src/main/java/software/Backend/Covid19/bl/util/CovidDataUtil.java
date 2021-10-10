@@ -99,7 +99,7 @@ public class CovidDataUtil {
             Vaccines vaccines = mapper.readValue(responseStream, Vaccines.class);
             Calendar c = Calendar.getInstance();
             Date date;
-            c.add(Calendar.DAY_OF_YEAR, -length);
+            c.add(Calendar.DAY_OF_YEAR, -(length));
             date = c.getTime();
             ArrayList arr;
             //System.out.println(c.getTime());
@@ -130,8 +130,8 @@ public class CovidDataUtil {
         try {
             List<LocationResponse> countries=countryDao.countries();
             for(int i=0;i<countries.size();i++){
-                var general=getDataCovid(countries.get(i).getLocationName(),50);
-                var vaccine=getVaccine(countries.get(i).getLocationName(),50);
+                var general=getDataCovid(countries.get(i).getLocationName(),300);
+                var vaccine=getVaccine(countries.get(i).getLocationName(),300);
                 //System.out.println(vaccine.toString());
                 Date date;
                 Calendar cal = Calendar.getInstance();
@@ -157,24 +157,26 @@ public class CovidDataUtil {
                     transaction.setTxUpdate(date);
                     covidData.setIdPageUrl(4);
                     if(j == 0){
-                        covidData.setDeathCases((Integer)general.get(j).get(2));
                         covidData.setConfirmedCases((Integer) general.get(i).get(1));
-                        covidData.setVaccinated((Integer)vaccine.get(i).get(1));
                         covidData.setConfirmedCumulative((Integer) general.get(j).get(1));
+                        covidData.setDeathCases((Integer)general.get(j).get(2));
                         covidData.setRecuperated((Integer) general.get(i).get(3));
+                        covidData.setVaccinated((Integer)vaccine.get(i).get(1));
                     }
                     else{
-                        covidData.setDeathCases((Integer) general.get(j).get(2)-(Integer) general.get(j-1).get(2));
                         covidData.setConfirmedCases((Integer) general.get(j).get(1)-(Integer) general.get(j-1).get(1));
-                        covidData.setVaccinated(-1);
                         covidData.setConfirmedCumulative((Integer) general.get(j).get(1));
+                        covidData.setDeathCases((Integer) general.get(j).get(2)-(Integer) general.get(j-1).get(2));
+                        covidData.setDeathCumulative((Integer) general.get(j).get(2));
                         covidData.setRecuperated((Integer) general.get(j).get(3)-(Integer) general.get(j-1).get(3));
+                        covidData.setRecuperatedCumulative((Integer) general.get(j).get(3));
+                        covidData.setVaccinated(-1);
                     }
                     covidData.setDate((Date) general.get(j).get(0));
                     covidData.setTransaction(transaction);
                     dateString=dateSelect.format((Date) general.get(j).get(0));
                     selectData = covidDataDao.verifyCountryCovidData(dateString,countries.get(i).getIdLocation());
-                    //System.out.println("ESSSS "+selectData);
+                    System.out.println("ESSSS "+selectData);
                     if(j!=0 && j!=1) {
                         if (selectData == 0) {
                             covidDataDao.insertCovidData(covidData);
@@ -199,6 +201,7 @@ public class CovidDataUtil {
                         }
                         //System.out.println("uno");
                     }
+                    System.out.println("covid cacunad "+covidData.getVaccinated());
                 }
             }
         }
