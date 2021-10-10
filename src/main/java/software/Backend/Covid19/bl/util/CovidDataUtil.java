@@ -176,7 +176,7 @@ public class CovidDataUtil {
                     covidData.setTransaction(transaction);
                     dateString=dateSelect.format((Date) general.get(j).get(0));
                     selectData = covidDataDao.verifyCountryCovidData(dateString,countries.get(i).getIdLocation());
-                    System.out.println("ESSSS "+selectData);
+                    //System.out.println("ESSSS "+selectData);
                     if(j!=0 && j!=1) {
                         if (selectData == 0) {
                             covidDataDao.insertCovidData(covidData);
@@ -201,7 +201,7 @@ public class CovidDataUtil {
                         }
                         //System.out.println("uno");
                     }
-                    System.out.println("covid cacunad "+covidData.getVaccinated());
+                    //System.out.println("covid cacunad "+covidData.getVaccinated());
                 }
             }
         }
