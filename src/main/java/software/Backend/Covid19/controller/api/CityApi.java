@@ -5,12 +5,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import software.Backend.Covid19.bl.DrugstoreBl;
-import software.Backend.Covid19.bl.util.CityBl;
+import software.Backend.Covid19.bl.CityBl;
 import software.Backend.Covid19.bl.util.TransactionUtil;
 import software.Backend.Covid19.bl.util.csv.CSVHelper;
 import software.Backend.Covid19.shared.dto.CityRequest;
-import software.Backend.Covid19.shared.dto.DrugstoreRequest;
 import software.Backend.Covid19.shared.model.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +35,6 @@ public class CityApi {
             try {
                 Transaction transaction = TransactionUtil.createTransactionUtil(request);
 
-                LOGGER.error("entre xd 1");
                 cityBl.saveData(file, isoCity, id, transaction);
 
                 return HttpStatus.OK;

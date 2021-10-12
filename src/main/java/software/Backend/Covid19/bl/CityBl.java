@@ -1,4 +1,4 @@
-package software.Backend.Covid19.bl.util;
+package software.Backend.Covid19.bl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,15 +9,12 @@ import software.Backend.Covid19.bl.util.csv.CSVHelper;
 import software.Backend.Covid19.dao.*;
 import software.Backend.Covid19.shared.dto.CityRequest;
 import software.Backend.Covid19.shared.dto.DataCsvCityRequest;
-import software.Backend.Covid19.shared.dto.DrugstoreRequest;
 import software.Backend.Covid19.shared.model.CityCovidData;
-import software.Backend.Covid19.shared.model.Country;
 import software.Backend.Covid19.shared.model.CovidData;
 import software.Backend.Covid19.shared.model.Transaction;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
