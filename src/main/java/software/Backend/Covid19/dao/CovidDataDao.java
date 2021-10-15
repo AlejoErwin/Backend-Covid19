@@ -4,6 +4,7 @@ import org.apache.ibatis.annotations.Mapper;
 import software.Backend.Covid19.shared.model.CityCovidData;
 import software.Backend.Covid19.shared.model.CountryCovidData;
 import software.Backend.Covid19.shared.model.CovidData;
+import software.Backend.Covid19.shared.model.MunicipalityCovidData;
 
 import java.util.Date;
 
@@ -19,6 +20,8 @@ public interface CovidDataDao {
     public Date lastDateCity(Integer cityId);
     public void createCovidData(CovidData covidData);
     public void createCityCovidData(CityCovidData cityCovidData);
+    public Date seeDateExistsCity(String dateData, Integer cityId);
 
-    public Date seeDateExists(String dateData, Integer cityId);
+    public Date seeDateExistsMunicipality(String convertido, Integer municipalityId);
+    public void createMunicipalityCovidData(MunicipalityCovidData municipalityCovidData);
 }

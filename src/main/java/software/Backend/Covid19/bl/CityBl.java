@@ -24,22 +24,19 @@ import java.util.List;
 public class CityBl {
     private TransactionDao transactionDao;
     private CityDao cityDao;
-    private CountryDao countryDao;
     private CovidDataDao covidDataDao;
 
     private static Logger LOGGER = LoggerFactory.getLogger(CityBl.class);
     @Autowired
-    public CityBl(TransactionDao transactionDao, CityDao cityDao,CountryDao countryDao,CovidDataDao covidDataDao) {
+    public CityBl(TransactionDao transactionDao, CityDao cityDao,CovidDataDao covidDataDao) {
         this.transactionDao = transactionDao;
         this.cityDao = cityDao;
-        this.countryDao=countryDao;
         this.covidDataDao=covidDataDao;
     }
 
     public void saveData(MultipartFile file, String isoCity, Integer userId, Transaction transaction){
         try{
 
-            LOGGER.error("entre xd 2");
             Integer cityId = cityDao.cityIdByIso(isoCity);
             LOGGER.error(String.valueOf(cityId));
             List<DataCsvCityRequest> dataCsvCityRequest = CSVHelper.CityCsvRequest(file.getInputStream());
@@ -61,7 +58,7 @@ public class CityBl {
                 String convertido = fecha.format(covidData.getDate());
                 System.out.println("ff: "+convertido);
                 LOGGER.error("FEcha: "+String.valueOf(covidData.getDate())+" idCity"+ String.valueOf(cityId)+" fecha 2"+String.valueOf(data.getDate()));
-                Date exists=covidDataDao.seeDateExists(convertido,cityId);
+                Date exists=covidDataDao.seeDateExistsCity(convertido,cityId);
                 LOGGER.error("exists: "+String.valueOf(exists));
 
                 if (exists==null){

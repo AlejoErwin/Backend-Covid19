@@ -8,4 +8,5 @@ import java.util.List;
 @Mapper
 public interface MunicipalityDao {
 
+    public Integer municipalityIdByName(String municipality,Integer idCity);
 }

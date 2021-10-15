@@ -114,7 +114,7 @@
     </select>
 
 
-    <select id="seeDateExists" resultType="java.util.Date">
+    <select id="seeDateExistsCity" resultType="java.util.Date">
         SELECT MAX(date)
         FROM city a, city_covid_data b, covid_data c
         WHERE
@@ -133,6 +133,11 @@
     </insert>
     <insert id="createCityCovidData" parameterType="software.Backend.Covid19.shared.model.CityCovidData">
         INSERT INTO city_covid_data VALUES (null, #{idCity}, #{idCovidData}, #{status},
+        #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},#{transaction.txUpdate})
+    </insert>
+
+    <insert id="createMunicipalityCovidData" parameterType="software.Backend.Covid19.shared.model.MunicipalityCovidData">
+        INSERT INTO municipality_covid_data VALUES (null, #{idMunicipality}, #{idCovidData}, #{status},
         #{transaction.txId}, #{transaction.txDate}, #{transaction.txHost},#{transaction.txUpdate})
     </insert>
 </mapper>

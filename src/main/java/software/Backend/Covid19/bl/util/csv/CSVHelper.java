@@ -64,20 +64,14 @@ public class CSVHelper {
         }
     }
 
-    public static List<DataCsvMunicipalityRequest> csvMunDataCsvRequest(InputStream is) {
+    public static List<DataCsvMunicipalityRequest> MunicipalityCsvRequest(InputStream is) {
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-             CSVParser csvParser = new CSVParser(fileReader,
-                     CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
-
+             CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
             List<DataCsvMunicipalityRequest> dataCsvMunicipalityRequest = new ArrayList<>();
-
             Iterable<CSVRecord> csvRecords = csvParser.getRecords();
-
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             for (CSVRecord csvRecord : csvRecords) {
-
                 DataCsvMunicipalityRequest dataCsvMunicipalityRequestList = new DataCsvMunicipalityRequest();
-                //dataMunicipalityCvsRequest.setDate(sdf.parse(csvRecord.get("Fecha")));
                 dataCsvMunicipalityRequestList.setMunicipality(csvRecord.get("Municipio"));
                 dataCsvMunicipalityRequestList.setDate(sdf.parse(csvRecord.get("Fecha")));
                 dataCsvMunicipalityRequestList.setConfirmedTotal(Integer.parseInt(csvRecord.get("Total_confirmados")));
