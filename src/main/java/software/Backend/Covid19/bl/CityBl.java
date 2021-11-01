@@ -56,10 +56,7 @@ public class CityBl {
                 covidData.setDate(data.getDate());
                 DateFormat fecha = new SimpleDateFormat("yyyy-MM-dd");
                 String convertido = fecha.format(covidData.getDate());
-                System.out.println("ff: "+convertido);
-                LOGGER.error("FEcha: "+String.valueOf(covidData.getDate())+" idCity"+ String.valueOf(cityId)+" fecha 2"+String.valueOf(data.getDate()));
                 Date exists=covidDataDao.seeDateExistsCity(convertido,cityId);
-                LOGGER.error("exists: "+String.valueOf(exists));
 
                 if (exists==null){
                     covidData.setIdPageUrl(null);
